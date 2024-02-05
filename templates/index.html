@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block home_login %}Home{% endblock home_login %} 
+{% block contact %}Contact{% endblock contact %} 
+{% block service %}Service{% endblock service %}
+
+{% block heading %}
+
+<div class="container">
+    <h1>Home page</h1>
+    <form action="/req_send" method="post">
+        {% csrf_token %}
+        <label for="">Enter Book Name</label>
+        <input type="text" id="book_name" name="book_name" placeholder="Enter book name" required />
+        <button type="submit">Request</button>
+    </form>
+</div>
+
+{% endblock heading %}
+{% block userauthenticated %}
+<div class="cardviewer">
+    <div class="card">
+        <h3>Hello {{fname}}!</h3>
+        <h4>You're successfully logged in.</h4>
+        {% for books in book_list %}
+        <strong>{{ books }}</strong>
+        <ul>
+            <li>Owner:{{books.username}}</li>
+            <li>Title : {{ books.title }}</li>
+            <li>Author : {{ books.author }}</li>
+            <li>publication_date : {{ books.publication_date }}</li>
+            <li>ISBN : {{ books.ISBN }}</li>
+            <li>Genre : {{ books.genre }}</li>
+            <li>Language : {{ books.language}}</li>
+            <li>Summary : {{ books.summary }}</li>
+            {% comment %}
+            <button type="submit"><a href="/req_send1">Request</a></button> {% endcomment %}
+        </ul>
+        <br /> {% endfor %} {{ books_list }}
+    </div>
+</div>
+{% block insert %}insert{% endblock insert %} 
+{% block logout %}Logout{% endblock logout %} 
+{% endblock userauthenticated %}

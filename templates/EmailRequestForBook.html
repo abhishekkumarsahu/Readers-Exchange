@@ -1,0 +1,18 @@
+{% autoescape off %}
+
+User {{name}} has request for a book from your library.
+
+Book Details:
+Title: {{title}}
+Author: {{author}}
+ISBN: [Book ISBN, if available]
+Genre: [Book Genre, if known]
+
+If it's available and you are currently not use it. 
+If you are interested to bollow the book to {{name}}
+
+Please confirm the {{name}} request.
+
+ Confirmation Link: http://{{ domain }}{% url 'book_req' uidb64=uid token=token %} 
+
+ {% endautoescape %}

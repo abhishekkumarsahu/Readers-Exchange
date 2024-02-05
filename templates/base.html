@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readers' Exchange</title>
+    <link rel="stylesheet" href="{% static 'style1.css'%}">
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <!-- <style>
+         /* Basic styling for the header */
+        
+        
+    </style> -->
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">Readers' Exchange</a>
+        <nav>
+            <a href="/">{% block home %}{% endblock home %}</a>
+            <a href="/">{% block home_login %}{% endblock home_login %}</a>
+            <a href="contact">{% block contact %}{% endblock contact %}</a>
+            <a href="service">{% block service %}{% endblock service %}</a>
+            <a href="signin">{% block login %}{% endblock login %}</a>
+            <a href="signup">{% block signup %}{% endblock signup %}</a>
+            <a href="signout">{% block logout %}{% endblock logout %}</a>
+            <a href="insert_book">{% block insert %}{% endblock insert %}</a>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+    </header>
+    <!-- Rest of your website content goes here -->
+
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dimissible fade show" role='alert'>
+        <strong>Message:</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+    {% endfor %}
+    {% block heading %}{% endblock heading %}
+    {% if user.is_authenticated %}
+    {% block userauthenticated %}{% endblock userauthenticated %}
+    {% block book_list %}{% endblock book_list %}
+    {% else %}
+    {% block book_list1 %}{% endblock book_list1 %}
+    {% block other %}
+   
+    {% endblock other %}
+    {% endif %}
+
+    
+</body>
+</html>

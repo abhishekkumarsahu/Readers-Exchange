@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block home %}Home{% endblock home %}
+{% block contact %}Contact{% endblock contact %}
+{% block service %}Service{% endblock service %}
+{% block logout %}Logout{% endblock logout %}
+
+{% block heading %}
+<div class="container">
+    <h1>Add Book</h1>
+
+    <form action="/insert_book" method="post">
+        {% csrf_token %}
+        <label for="">title</label>
+        <input type="text" id="title" name="title" placeholder="Enter book title" required>
+
+        {% comment %} <label for="">Enter your Name</label>
+        <input type="text" id="username" name="username" placeholder="Enter your name" required> {% endcomment %}
+
+        <label for="">author</label>
+        <input type="text" id="author" name="author" placeholder="Enter Book author name" required>
+        
+        <label for="">publication_date</label>
+        <input type="date" id="publication_date" name="publication_date" placeholder="Enter book publication_date" required>
+
+        <label for="">ISBN</label>
+        <input type="text" id="ISBN" name="ISBN" placeholder="Enter Book ISBN" required>
+
+        <label for="">genre</label>
+        <input type="text" id="genre" name="genre" placeholder="Enter your book genre" required>
+
+        <label for="">language</label>
+        <input type="text" id="language" name="language" placeholder="Enter Book language" required>
+
+        <label for="">summary</label>
+        <input type="text" id="summary" name="summary" placeholder="Create a summary" required>
+
+        <br></br>
+        <button type="submit">insert</button>
+
+    </form>
+</div>
+
+{% endblock heading %}

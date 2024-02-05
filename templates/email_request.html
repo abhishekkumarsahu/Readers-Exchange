@@ -1,0 +1,11 @@
+{% autoescape off %}
+
+ Welcome to Book Bank!!
+ user {{ name }} has request for your Book.
+
+Please comfirm the request,
+If your are interested to share your Book.
+
+ Confirmation Link: http://{{ domain }}{% url 'book_req' uidb64=uid token=token %} 
+
+ {% endautoescape %}

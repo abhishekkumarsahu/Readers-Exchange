@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block home %}Home{% endblock home %}
+{% block service %}Service{% endblock service %}
+{% comment %} {% block login %}Login{% endblock login %}
+{% block signup %}Signup{% endblock signup %} {% endcomment %}
+{% block insert %}insert{% endblock insert %}
+{% block logout %}Logout{% endblock logout %}
+
+{% block heading %}
+<div class="container">
+    <h1>Contact Us</h1>
+    <h2>Contact Support</h2>
+    <h2>abhishek1813051005@gmail.com</h2>
+
+    {% comment %} <form action="/contact" method="post">
+        {% csrf_token %}
+        <label for="">Username</label>
+        <input type="text" id="username" name="username" placeholder="Create a username (only letters not numbers)" required>
+
+        <label for="">First Name</label>
+        <input type="text" id="fname" name="fname" placeholder="Enter your First Name" required>
+        
+        <label for="">Last Name</label>
+        <input type="text" id="lname" name="lname" placeholder="Enter your Last Name" required>
+
+        <label for="">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your Email Address" required>
+
+        <br></br>
+        <button type="submit">SignUp</button>
+
+    </form> {% endcomment %}
+</div>
+{% endblock heading %}

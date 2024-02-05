@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block contact %}Contact{% endblock contact %}
+{% block service %}Service{% endblock service %}
+
+{% block heading %}
+
+<div class="container">
+    <h1>Home page</h1>
+</div>
+{% endblock heading %}
+
+{% block userauthenticated %}
+<div class="container">
+    <form action="/req_send" method="post">
+        {% csrf_token %}
+        <label for="">Enter Book Name</label>
+        <input type="text" id="book_name" name="book_name" placeholder="Enter book name"required>
+        <button type="submit">Request</button>
+    </form>
+    <h3>Hello {{fname}}!</h3>
+    <h4>You're successfully logged in.</h4>
+    {% for books in book_list %}
+    <strong>{{ books }}</strong>
+    <ul>
+        {% comment %} <li>Owner:{{books.username}}</li> {% endcomment %}
+        <li>Title : {{ books.title }}</li>
+        <li>Author : {{ books.author }}</li>
+        <li>publication_date : {{ books.publication_date }}</li>
+        <li>ISBN : {{ books.ISBN }}</li>
+        <li>Genre : {{ books.genre }}</li>
+        <li>Language : {{ books.language}}</li>
+        <li>Summary : {{ books.summary }}</li>
+        {% comment %} <button type="submit"><a href="/req_send1">Request</a></button> {% endcomment %}
+    </ul>
+    <br/>
+        {% endfor %}
+    {{ books_list }}
+
+</div>
+{% endblock userauthenticated %}
+
+{% block book_list1 %}
+<div class="container">
+
+    {% for books in book_list %}
+    <strong>{{ books }}</strong>
+    <ul>
+        <li>Title : {{ books.title }}</li>
+        <li>Author : {{ books.author }}</li>
+        <li>publication_date : {{ books.publication_date }}</li>
+        <li>ISBN : {{ books.ISBN }}</li>
+        <li>Genre : {{ books.genre }}</li>
+        <li>Language : {{ books.language}}</li>
+        <li>Summary : {{ books.summary }}</li>
+        <button type="submit"><a href="/req_send">Request</a></button>
+    </ul>
+    {% comment %} <ul class="list-group">
+        <li class="list-group-item">Title : {{ books.title }}</li>
+        <li class="list-group-item">Author : {{ books.author }}</li>
+        <li class="list-group-item">publication_date : {{ books.publication_date }}</li>
+        <li class="list-group-item">ISBN : {{ books.ISBN }}</li>
+        <li class="list-group-item">Genre : {{ books.genre }}</li>
+        <li class="list-group-item">Language : {{ books.language}}</li>
+        <li class="list-group-item">Summary : {{ books.summary }}</li>
+      </ul> {% endcomment %}
+    <br/>
+        {% endfor %}
+    {{ books_list }}
+</div>
+
+{% endblock book_list1 %}
+
+{% block other %}
+{% block signup %}Signup{% endblock signup %}
+{% block login %}Login{% endblock login %}
+
+{% endblock other %}
+
+
+
+

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block home %}Home{% endblock home %}
+{% block contact %}Contact{% endblock contact %}
+{% block service %}Service{% endblock service %}
+
+{% block heading %}
+
+<div class="container">
+    <h1>Request For Book</h1>
+</div>
+
+{% endblock heading %}
+
+{% block userauthenticated %}
+{% block insert %}insert{% endblock insert %}
+{% block logout %}Logout{% endblock logout %}
+
+<form action="/req_send2" method="post">
+    {% csrf_token %}
+    <label for="">Enter Book Name</label>
+    <input type="text" id="book_name" name="book_name" placeholder="Enter book name"required>
+    <button type="submit">Request</button>
+    </form>
+
+{% endblock userauthenticated %}
